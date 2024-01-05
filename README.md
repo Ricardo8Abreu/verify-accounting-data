@@ -8,33 +8,36 @@
 
 To install this package, you can use npm:
 
-\`\`\`bash
+```bash
 npm install verify-accounting-data
-\`\`\`
+```
+
+## Comunity
+https://t.me/ricardo8Abreu_code_lab_community
 
 ## Usage
 
 Here's an example of how to use `verify-accounting-data`:
 
-\`\`\`javascript
+```javascript
 import verifyData from 'verify-accounting-data';
 
 const data = [1, 2, 3, 4, 5];
 const result = verifyData(data);
 
 console.log(result); // { value: true, status: true, quantity: 5, message: "Ok" }
-\`\`\`
+```
 
 And here's an example where an error occurs:
 
-\`\`\`javascript
+```javascript
 import verifyData from 'verify-accounting-data';
 
 const data = undefined;
 const result = verifyData(data);
 
 console.log(result); // { value: null, status: false, quantity: null, message: "Data is undefined" }
-\`\`\`
+```
 
 ## Return Values
 
