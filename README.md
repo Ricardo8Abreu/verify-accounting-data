@@ -12,9 +12,6 @@ To install this package, you can use npm:
 npm install verify-accounting-data
 ```
 
-## Comunity
-https://t.me/ricardo8Abreu_code_lab_community
-
 ## Usage
 
 Here's an example of how to use `verify-accounting-data`:
@@ -25,7 +22,7 @@ import verifyData from 'verify-accounting-data';
 const data = [1, 2, 3, 4, 5];
 const result = verifyData(data);
 
-console.log(result); // { value: true, status: true, quantity: 5, message: "Ok" }
+console.log(result); // { hasData: true, status: true, quantity: 5, message: "Ok" }
 ```
 
 And here's an example where an error occurs:
@@ -36,21 +33,21 @@ import verifyData from 'verify-accounting-data';
 const data = undefined;
 const result = verifyData(data);
 
-console.log(result); // { value: null, status: false, quantity: null, message: "Data is undefined" }
+console.log(result); // { hasData: null, status: false, quantity: null, message: "Data is undefined" }
 ```
 
 ## Return Values
 
 The `verifyData` function returns an object with the following properties:
 
-- `value`: Indicates whether there are elements in the data (`true` if there are, `false` if not, `null` if there was an error).
 - `status`: Indicates whether the function executed correctly (`true` if yes, `false` if no).
-- `quantity`: Number of elements in the data or characters in the string (or `null` if there was an error).
+- `hasData`: Indicates whether there are elements in the data (`true` if there are, `false` if not, `null` if there was an error).
 - `message`: Additional details about the function execution.
+- `quantity`: Number of elements in the data or characters in the string (or `null` if there was an error).
 
 ## Contribution
 
-Contributions are always welcome. Please read the contribution guidelines before contributing.
+Contributions are always welcome.
 
 ## License
 

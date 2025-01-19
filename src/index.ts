@@ -1,46 +1,44 @@
-type ValidData = any[] | string
+import { FalsyString, ValidData } from "./types"
 
-export type VerifyDataValidation = boolean | null
+import { getQuantity } from "./utils/getQuantity"
+import { getDefaultReturnError } from "./utils/getDefaultReturnError"
 
-const falseStrings = ["null", "NaN", "undefined"]
 
-const defaultReturnError = (message: string) => {
-    return {
-        value: null,
-        status: false,
-        quantity: null,
-        message
-    }
-}
+export const falsyStrings:FalsyString[] = ["null", "NaN", "false", "undefined"]
 
 const verifyData = (data: ValidData) => {
-    try {
+  try {
 
-        if (!data) {
-            return defaultReturnError(`Data is ${data}`)
-        }
-
-        const isFalseString = falseStrings.find((falseString) => falseString === data)
-
-        if (isFalseString) {
-            return defaultReturnError(`Data is ${data}`)
-        }
-
-        const quantity = data.length
-        const value = quantity > 0
-
-        return {
-            value,
-            status: true,
-            quantity,
-            message: "Ok"
-        }
-
-    } catch (error) {
-        const message = (error as Error).message
-        console.log("🚀 ~ file: verifyData.ts:20 ~ verifyData ~ message:", message)
-        return defaultReturnError(message)
+    if (!data) {
+      return getDefaultReturnError(`Data is "${data}"`)
     }
+
+    const isFalsyString = falsyStrings.find((falseString) => falseString === data)
+
+    if (isFalsyString) {
+      return getDefaultReturnError(`Data is ${data}`)
+    }
+
+    const { quantity, message } = getQuantity(data)
+
+    if (quantity === null) {
+      return getDefaultReturnError(`Quantity is ${quantity}: \n\n ${message}`)
+    }
+
+    const hasData = quantity > 0
+
+    return {
+      status: true,
+      hasData,
+      message: "Ok",
+      quantity,
+    }
+
+  } catch (error) {
+    const message = (error as Error).message
+    console.log("🚀 ~ file: verifyData.ts:20 ~ verifyData ~ message:", message)
+    return getDefaultReturnError(message)
+  }
 }
 
 export default verifyData

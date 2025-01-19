@@ -1,44 +1,37 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.2",
   "license": "MIT",
+  "author": "Ricardo8Abreu",
+  "description": "`verify-accounting-data` is an npm package designed to verify the validity of accounting data. It can check if there are elements within an array or characters in a string and return `true` if there are elements or characters and `false` if not.",
+  "bugs": {
+    "url": "https://github.com/Ricardo8Abreu/verify-accounting-data/issues"
+  },
   "repository": {
-    "url": "https://github.com/Ricardo8Abreu/verify-accounting-data",
+    "url": "https://github.com/Ricardo8Abreu/verify-accounting-data.git",
     "type": "git"
   },
-  "description": "`verify-accounting-data` is an npm package designed to verify the validity of accounting data. It can check if there are elements within an array or characters in a string and return `true` if there are elements or characters and `false` if not.",
   "keywords": [
-    "js",
-    "ts",
+    "javascript",
+    "typescript",
     "data",
     "verify",
     "accounting",
-    "javascript"
-
+    "validation"
   ],
   "main": "dist/index.js",
+  "module": "dist/verify-accounting-data.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "peerDependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
@@ -46,24 +39,10 @@
     "trailingComma": "es5"
   },
   "name": "verify-accounting-data",
-  "author": "Ricardo8Abreu",
-  "module": "dist/verify-accounting-data.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/verify-accounting-data.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/verify-accounting-data.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^11.0.1",
-    "husky": "^8.0.3",
-    "size-limit": "^11.0.1",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.6.2",
-    "typescript": "^5.3.3"
+    "tsup": "^8.3.5",
+    "typescript": "^5.3.3",
+    "jest": "^29.0.0",
+    "eslint": "^8.0.0"
   }
 }

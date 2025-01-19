@@ -1,4 +1,7 @@
 *.log
+*.lock
 .DS_Store
 node_modules
+.cache
 dist
+test
