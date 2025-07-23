@@ -1,5 +1,5 @@
 {
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "author": "Ricardo8Abreu",
   "description": "`verify-accounting-data` is an npm package designed to verify the validity of accounting data. It can check if there are elements within an array or characters in a string and return `true` if there are elements or characters and `false` if not.",
@@ -19,8 +19,9 @@
     "validation"
   ],
   "main": "dist/index.js",
-  "module": "dist/verify-accounting-data.esm.js",
-  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+
   "files": [
     "dist"
   ],
